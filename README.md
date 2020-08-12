@@ -55,6 +55,7 @@ https://medium.com/@andrew72ru/symfony-4-codeception-371ba6408ae5
 
 tests/_support/Helper/Functional.php
 
+```php
 /**
 * Create user or administrator and set auth cookie to client
 *
@@ -109,10 +110,12 @@ $session->save();
 $cookie = new Cookie($session->getName(), $session->getId());
 $symfony->client->getCookieJar()->set($cookie);
 }
-
+```
 
 
 And in test class:
+
+```php
 
 public function tryToSeeMainPage(FunctionalTester $I)
 {
@@ -122,3 +125,4 @@ public function tryToSeeMainPage(FunctionalTester $I)
     $I->seeElement('nav');
     $I->see($I->grabService('translator')->trans('Personal Area'));
 }
+```
